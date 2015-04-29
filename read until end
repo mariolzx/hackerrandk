@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.Scanner;
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+        
+        Scanner in = new Scanner(System.in);
+        
+        String temp2="";
+        
+        while (in.hasNextLine()) {
+           temp2=in.nextLine();
+        }
+        String[] tempNums = temp2.split(" ");
+        for (int i=0;i<tempNums.length; i++) {
+        int totalNum = Integer.parseInt(tempNums[i]);
+            System.out.println(totalNum);}
+    }
+}
