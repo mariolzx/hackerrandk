@@ -1,0 +1,28 @@
+import java.io.*;
+public class Main {
+    public static void main (String[] args) throws IOException {
+        File file = new File(args[0]);
+        BufferedReader buffer = new BufferedReader(new FileReader(file));
+        String line;
+        int limit;
+        while ((line = buffer.readLine()) != null) {
+            StringBuilder sb = new StringBuilder();
+            line = line.trim();
+            limit = Integer.valueOf(line);
+            for (int i = 2; i <= limit; i++)
+                if (isPrime(i) || i == 2)
+                    sb.append(i + ",");
+            sb.deleteCharAt(sb.length() - 1);
+            System.out.println(sb);
+        }
+    }
+
+    private static boolean isPrime(int n) {
+        if (n % 2 == 0) 
+            return false;
+        for (int i = 3; i*i <= n; i += 2)
+            if (n % i == 0) 
+                return false;
+        return true;
+    }
+}
