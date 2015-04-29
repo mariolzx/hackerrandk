@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+static int getNumberOfPrimes(int N) {
+      StringBuilder sb = new StringBuilder();
+        int i=2;
+        int result=0;
+        while (i<N) {
+                if (isPrime(i) || i == 2)
+                {result++;}
+            i++;
+        }
+        return (result);
+    }
+        
+ 
+   private static boolean isPrime(int n) {
+        if (n % 2 == 0) 
+            return false;
+        for (int i = 3; i*i <= n; i += 2)
+            if (n % i == 0) 
+                return false;
+        return true;
+    }
+
+
+
+    public static void main(String[] args) throws IOException{
+        Scanner in = new Scanner(System.in);
+        final String fileName = System.getenv("OUTPUT_PATH");
+        BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+        int res;
+        int _N;
+        _N = Integer.parseInt(in.nextLine());
+        
+        res = getNumberOfPrimes(_N);
+        bw.write(String.valueOf(res));
+        bw.newLine();
+        
+        bw.close();
+    }
+}
